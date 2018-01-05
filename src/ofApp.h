@@ -20,11 +20,14 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
+
     
     // Audio output and input methods
     
         void audioOut(float * output, int bufferSize, int nChannels);
         void audioIn(float * input, int bufferSize, int nChannels);
+    
+    float sf(float angle, float a, float b, float m1, float m2, float n1, float n2, float n3);
      
      
     
@@ -35,53 +38,25 @@ class ofApp : public ofBaseApp{
     
     ofParameterGroup params;
     
-    ofParameter<double> op1_freq;
-    ofParameter<double> op1_amp;
-    ofParameter<double> op2_freq;
-    ofParameter<double> op2_amp;
+    ofParameter<double> s1_speed;
+    ofParameter<double> s2_speed;
+    ofParameter<double> s3_speed;
+    ofParameter<double> s4_speed;
+    ofParameter<double> s5_speed;
+    ofParameter<double> s6_speed;
+    ofParameter<double> s7_speed;
+    ofParameter<double> s8_speed;
+    ofParameter<double> s9_speed;
+    ofParameter<double> s10_speed;
     
-    ofParameter<double> fm1_freq;
-    ofParameter<double> fm1_index;
-    ofParameter<double> fm1_amount;
     
-    ofParameter<double> fm2_freq;
-    ofParameter<double> fm2_index;
-    ofParameter<double> fm2_amount;
     
-    ofParameter<double> filter_cut;
-    ofParameter<double> filter_res;
+    maxiSample samp;
     
-    const double OP1_FREQ_DEF {200};
-    const double OP1_AMP_DEF {1};
+    maxiSample s1, s2, s3, s4, s5, s6, s7, s8, s9, s10;
     
-    const double OP2_FREQ_DEF {210};
-    const double OP2_AMP_DEF {1};
+    ofxMaxiFFT fft;
+    ofxMaxiFFTOctaveAnalyzer oct;
     
-    const double FM1_FREQ_DEF {600};
-    const double FM1_INDEX_DEF {100};
-    const double FM1_AMOUNT_DEF {1.};
-    
-    const double FM2_FREQ_DEF {500};
-    const double FM2_INDEX_DEF {1000};
-    const double FM2_AMOUNT_DEF {1.};
-    
-//    double am1_amount {1};
-//    double am1_freq {13};
-    
-//    double am2_amount {1};
-//    double am2_freq {131};
-    
-    const double FILTER_CUTOFF_DEF {4000};
-    const double FILTER_RES_DEF {40};
-		
-    maxiOsc op1;
-    maxiOsc op2;
-    maxiOsc fm1;
-    maxiOsc fm2;
-//    maxiOsc am1;
-//    maxiOsc am2;
-    
-//    maxiOsc lfo1, lfo2, lfo3, lfo4;
 
-    maxiFilter filter;
 };
